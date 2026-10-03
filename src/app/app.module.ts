@@ -8,12 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    DashboardComponent
+    DashboardComponent,
+    DonutChartComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,

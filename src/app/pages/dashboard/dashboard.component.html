@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container py-4">
     <p *ngIf="loading">Loading...</p>
     <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
@@ -23,21 +24,21 @@
         </div>
 
         <h2 class="mb-3">User List</h2>
-        <table class="table table-bordered bg-white">
+        <table class="table table-bordered user-table">
             <thead class="thead-light">
                 <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>User Name</th>
+                    <th class="col-index">#</th>
+                    <th class="col-name">First Name</th>
+                    <th class="col-name">Last Name</th>
+                    <th class="col-username">User Name</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of data.tableUsers; let i = index">
-                <td>{{ i + 1 }}</td>
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>@{{ user.username }}</td>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td class="col-username">@{{ user.username }}</td>
                 </tr>
             </tbody>
         </table>

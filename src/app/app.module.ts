@@ -10,6 +10,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
     SignInComponent,
     DashboardComponent,
     DonutChartComponent,
-    BarChartComponent
+    BarChartComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

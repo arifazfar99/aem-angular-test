@@ -1,27 +1,41 @@
-# AemAngularTest
+# AEM Angular Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+Sign In + protected Dashboard built with Angular 14,
+consuming the AEM test-demo API.
 
-## Development server
+## Features
+- Sign in with reactive form validation (required, email format)
+- Token stored in localStorage, attached to every API call via HttpInterceptor
+- Auto sign-out when the API returns 401 (expired/invalid token)
+- Route guards: AuthGuard protects /dashboard, GuestGuard keeps signed-in users off /sign-in
+- Dashboard: donut + bar chart (D3) and user table
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
+Angular 14, Bootstrap 4.6, D3.js, RxJS
 
-## Code scaffolding
+## Prerequisites
+- Node.js 16 (see `.nvmrc`; run `nvm use` if you have nvm)
+- Angular CLI 14: `npm install -g @angular/cli@14`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
+    git clone https://github.com/arifazfar99/aem-angular-test.git
+    cd aem-angular-test
+    npm install
+    ng serve
+Then open http://localhost:4200
 
-## Build
+## Test Credentials
+Provided in the assessment brief (`Angular.md`):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Username: `user@aemenersol.com` and
+Password: `Test@123`
 
-## Running unit tests
+## Project Structure
+    src/app/core        auth service, interceptor, guards, dashboard service + model
+    src/app/pages       sign-in, dashboard
+    src/app/components  navbar, donut-chart, bar-chart
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Notes
+- The API returns `chartBar`, not `chartbar` as written in the brief, so the model is typed from the real response.
+- 401 handling is deliberately skipped on the unauthenticated login request, so a wrong password shows an error instead of triggering a logout redirect.
+- `@types/node` and `@types/d3-dispatch` are pinned via `overrides`, because newer versions require TypeScript 5 and Angular 14 ships TS 4.7.

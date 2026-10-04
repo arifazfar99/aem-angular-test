@@ -1,3 +1,13 @@
+h2 {
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+
+.card-header {
+  font-weight: 500;
+  border-bottom: none;
+}
+
 .user-table {
   font-size: 0.875rem;
   background-color: #fff;
@@ -12,8 +22,12 @@
 
   thead th {
     background-color: #f5f5f5;
-    font-weight: normal;
+    font-weight: 500;
     border-bottom-width: 1px;
+  }
+
+  tbody td {
+    font-weight: 500;
   }
 
   .col-index {
